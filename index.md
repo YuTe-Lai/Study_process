@@ -1,6 +1,7 @@
 ## 目錄
 
 一、[Data Structure and Algorithm](https://github.com/YuTe-Lai/yute-lai.github.io/blob/master/algorithm.md) <br>
+二、[NLP](https://yute-lai.github.io/NLP/)<br>
 二、[Plotly](https://yute-lai.github.io/plotly.github.io/)<br>
 三、[Dash](https://yute-lai.github.io/yute-dash.github.io/)<br>
 
