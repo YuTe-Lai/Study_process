@@ -21,9 +21,21 @@
 <img src="https://github.com/YuTe-Lai/yute-lai.github.io/blob/master/img/virtualcode.png?raw=true" alt="virtualcode"  width="350" height="300">
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;虛擬碼<br>
 <br>
+
 ## Step 3：計算其執行時間及所使用的記憶體空間大小 
 ### 時間複雜度：
+簡單的定義就是電腦執行演算法所需要耗費的時間成本。但因為每台電腦的計算能力不一樣，所以常用"演算法執行需要幾個指令"來做計算（忽略每個指令需要的時間）。
+時間複雜度會運用**概量**（ 漸近分析 asymptotic analysis，例如：當 f(n) = n^2 + 3n 這個函數，當 n 很大時，3n 會比 n^2 小很多，則可以忽略不計。當 n 趨近無限大時，f(n) 等價於 n^2 ）。<br>
+通常我們使用 ` Big Ｏ notation `大 `Ｏ`符號來表示時間複雜度。假設算法函式所需執行時間為` T(n) `，則我們將其時間複雜度表示為 `Ｏ(f(n))`。而其中`f(n)` 又稱為執行時間的成長率，是影響速度最大的變數。<br>
+首先我們先來看` Ｏ(1) `的例子，這個演算法執行的步驟是固定的，跟輸入的值無關：
+```python
+# 不管 n 輸入為多少，這個程式永遠只會執行一次
+def print_num(num):
+    print(num)
+```
 
+```python
+```
 ### 空間複雜度：
 <br>
 ## Step 4：撰寫程式
