@@ -45,7 +45,7 @@ def sum_number(num):
 
 sum_number(10)
 ```
-<img src="https://github.com/YuTe-Lai/yute-lai.github.io/blob/master/img/Big_O_complexity_chart.png?raw=true" alt="Big-O Complexity Chart"  width="600" height="520">
+<img src="https://github.com/YuTe-Lai/yute-lai.github.io/blob/master/img/Big_O_complexity_chart.png?raw=true" alt="Big-O Complexity Chart"  width="600" height="700">
 
 ### 空間複雜度：
 <br>
