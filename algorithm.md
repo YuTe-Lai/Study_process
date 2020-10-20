@@ -1,13 +1,30 @@
 # 演算法
-只要是利用電腦解決問題的步驟，就能稱為演算法。通常在針對某一問題開發程式時，都會經過下列流程：<br>
-Step 1:明確定義問題<br>
-Step 2:設計演算法<br>
+演算法是一個有輸入跟輸出的解決問題的流程，它具有明確、有限步驟且有效的特性，常用於計算、資料處理和自動推理。通常在針對某一問題開發程式時，都會經過下列流程：<br>
+## Step 1：明確定義問題
+理論上來說，演算法可以解決大部分的問題，甚至要預測尚未發生的事情也並無不可能，但現實生活中的變數太多且難以量化，容易造成輸出結果不盡理想，故現階段在定義問題時建議可以先將問題簡單化。
+<br>
+## Step 2：設計演算法
+### 演算法的定義：
+高德納(Donald Ervin Knuth) 在《電腦程式設計藝術》裡歸納出一個演算法需要俱備的五個特性：<br>
+1.輸入：一個演算法必須有0或多個輸入<br>
+2.輸出：一個演算法應至少有一個或以上的輸出結果（ 有可能是 0 或是 null ）<br>
+3.明確性：演算法的每個指令或步驟描述必須明確，以保證演算法的實際執行結果是確實符合要求<br>
+4.有限性：在有限步驟後一定會結束，不會進入無窮迴圈<br>
+5.有效性：又稱可行性。演算法中描述的步驟都是可以運算的<br>
+<br>
+而怎麼樣才能設計一個符合定義的演算法呢？常見的方法有兩種： **流程圖** 、 **虛擬碼** 。
+
+
 <img src="https://github.com/YuTe-Lai/yute-lai.github.io/blob/master/img/flowchart.png?raw=true" alt="flowchart"  width="350" height="300">
 <img src="https://github.com/YuTe-Lai/yute-lai.github.io/blob/master/img/virtualcode.png?raw=true" alt="virtualcode"  width="350" height="300"><br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;流程圖&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;虛擬碼<br>
-Step 3:計算其執行時間及所使用的記憶體空間大小 <br>
-Step 4:撰寫程式<br>
+<br>
+## Step 3：計算其執行時間及所使用的記憶體空間大小 
 
+<br>
+## Step 4：撰寫程式
+
+<br>
 
 
 
