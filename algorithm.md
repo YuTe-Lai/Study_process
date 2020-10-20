@@ -1,3 +1,13 @@
+# 演算法
+只要是利用電腦解決問題的步驟，就能稱為演算法。通常在針對某一問題開發程式時，都會經過下列流程：
+Step 1:明確定義問題
+Step 2:設計演算法（流程圖）
+![Image of flowchary](flowchart.png)
+Step 3:計算其執行時間及所使用的記憶體空間大小 （虛擬碼）
+![Image of virtualcode](virtualcode.png)
+Step 4:撰寫程式
+
+
 ## QuickSort
 
 ```python
