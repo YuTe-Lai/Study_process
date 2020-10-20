@@ -26,16 +26,27 @@
 ### 時間複雜度：
 簡單的定義就是電腦執行演算法所需要耗費的時間成本。但因為每台電腦的計算能力不一樣，所以常用"演算法執行需要幾個指令"來做計算（忽略每個指令需要的時間）。
 時間複雜度會運用**概量**（ 漸近分析 asymptotic analysis，例如：當 f(n) = n^2 + 3n 這個函數，當 n 很大時，3n 會比 n^2 小很多，則可以忽略不計。當 n 趨近無限大時，f(n) 等價於 n^2 ）。<br>
-通常我們使用 ` Big Ｏ notation `大 `Ｏ`符號來表示時間複雜度。假設算法函式所需執行時間為` T(n) `，則我們將其時間複雜度表示為 `Ｏ(f(n))`。而其中`f(n)` 又稱為執行時間的成長率，是影響速度最大的變數。<br>
-首先我們先來看` Ｏ(1) `的例子，這個演算法執行的步驟是固定的，跟輸入的值無關：
+通常我們使用 ` Big Ｏ notation `大Ｏ符號來表示時間複雜度。假設我們將其時間複雜度表示為`Ｏ(f(n))`，則其中`f(n)` 又稱為**執行時間的成長率**，是影響速度最大的變數。<br>
+
+下圖為`Ｏ(1)`的例子，這個演算法執行的步驟是固定的，跟輸入的值無關（不管num輸入多少，程式皆只會執行一次）：
+
 ```python
 # 不管 n 輸入為多少，這個程式永遠只會執行一次
 def print_num(num):
     print(num)
 ```
-
+下面是`Ｏ(n)`的例子，時間複雜度跟輸入的次數有關：隨著 num 改變，需要跑 num 次，是線性時間的成長。這邊 `f(n)` 等於 `n`，所以 `Ｏ(f(n))` 就是 `Ｏ(n)`。
 ```python
+def sum_number(num):
+    total = 0
+    for n in num:
+        total += num
+    return total
+
+sum_number(10)
 ```
+<img src="https://github.com/YuTe-Lai/yute-lai.github.io/blob/master/img/Big_O_complexity_chart.png?raw=true" alt="Big-O Complexity Chart"  width="600" height="520">
+
 ### 空間複雜度：
 <br>
 ## Step 4：撰寫程式
