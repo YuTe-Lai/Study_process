@@ -12,15 +12,16 @@
 4.有限性：在有限步驟後一定會結束，不會進入無窮迴圈<br>
 5.有效性：又稱可行性。演算法中描述的步驟都是可以運算的<br>
 <br>
-而怎麼樣才能設計一個符合定義的演算法呢？常見的方法有兩種： **流程圖** 、 **虛擬碼** 。
-
+而怎麼樣才能設計一個符合定義的演算法呢？常見的方法有兩種： **流程圖** 、 **虛擬碼** 。<br>
 
 <img src="https://github.com/YuTe-Lai/yute-lai.github.io/blob/master/img/flowchart.png?raw=true" alt="flowchart"  width="350" height="300">
 <img src="https://github.com/YuTe-Lai/yute-lai.github.io/blob/master/img/virtualcode.png?raw=true" alt="virtualcode"  width="350" height="300"><br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;流程圖&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;虛擬碼<br>
 <br>
 ## Step 3：計算其執行時間及所使用的記憶體空間大小 
+### 時間複雜度：
 
+### 空間複雜度：
 <br>
 ## Step 4：撰寫程式
 
