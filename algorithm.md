@@ -1,5 +1,9 @@
 # 資料結構
-
+## 陣列 Array
+陣列（如下）是有序串列的一種方式，其佔用連續的記憶體空間，各元素型態（Type）皆需相同，其支援 Sequential 及 Random Access。<br>
+`[1,3,5,7,9]`、`['a','b','c','d','e']`<br>
+但陣列在插入、刪除元素較為麻煩：需移動其它元素，不易動態增加或刪減空間大小。<br>
+insert（4）：`[1,3,5,7,9]`->`[1,3, ,5,7,9]`->`[1,3,4,5,7,9]`<br>
 
 # 演算法
 演算法是一個有輸入跟輸出的解決問題的流程，它具有明確、有限步驟且有效的特性，常用於計算、資料處理和自動推理。通常在針對某一問題開發程式時，都會經過下列流程：<br>
@@ -32,10 +36,10 @@
 <img src="https://github.com/YuTe-Lai/yute-lai.github.io/blob/master/img/T(n).png?raw=true" alt="Big-O Complexity Chart"  width="650" height="420"><br>
 時間複雜度會運用**漸近符號** asymptotic notation來表示，在這邊**漸近符號** asymptotic notation主要有兩種表示方法：<br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Big-Ｏ(O) : 某演算法時間函數的即上限 (Upperbound)，演算法在執行時所花費的時間成長，最差的情況不會超過它。通常會使用**概量**表示。**概量**：當 f(n) = n^2 + 3n 這個函數，當 n 很大時，3n 會比 n^2 小很多，則可以忽略不計。當 n 趨近無限大時，f(n) 等價於 n^2 。<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Omega(Ω):某演算法時間函數的下限 (Lower bound)，演算法在執行時所花費的時間成長，最好的情況也不會低於它。<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Omega(Ω)：某演算法時間函數的下限 (Lower bound)，演算法在執行時所花費的時間成長，最好的情況也不會低於它。<br>
 <br>
 通常我們使用 ` Big Ｏ notation `大Ｏ符號來表示時間複雜度。假設我們將其時間複雜度表示為`Ｏ(T(n))`，則其中`T(n)` 又稱為**執行時間的成長率**，是影響速度最大的變數。<br>
-下圖為`Ｏ(1)`的例子，這個演算法執行的步驟是固定的，跟輸入的值無關（不管num輸入多少，程式皆只會執行一次）：
+下面為`Ｏ(1)`的例子，這個演算法執行的步驟是固定的，跟輸入的值無關（不管num輸入多少，程式皆只會執行一次）：
 
 ```python
 # 不管 n 輸入為多少，這個程式永遠只會執行一次
