@@ -29,8 +29,14 @@
 ### 時間複雜度：
 簡單的定義就是電腦執行演算法所需要耗費的時間成本。但因為每台電腦的計算能力不一樣，所以常用"演算法執行需要幾個指令"來做計算（忽略每個指令需要的時間）。T(n)：表示當輸入資料量為 n 時，演算法中所有指令所需的實際執行次數。
 <br>
-<img src="https://github.com/YuTe-Lai/yute-lai.github.io/blob/master/img/T(n).png?raw=true" alt="Big-O Complexity Chart"  width="700" height="600">
-時間複雜度會運用**概量**（ **漸近分析** asymptotic analysis，例如：當 T(n) = n^2 + 3n 這個函數，當 n 很大時，3n 會比 n^2 小很多，則可以忽略不計。當 n 趨近無限大時，T(n) 等價於 n^2 ）。<br>
+<img src="https://github.com/YuTe-Lai/yute-lai.github.io/blob/master/img/T(n).png?raw=true" alt="Big-O Complexity Chart"  width="750" height="500"><br>
+時間複雜度會運用**漸近符號** asymptotic notation來表示，在這邊**漸近符號** asymptotic notation主要有兩種表示方法：<br>
+Big-Ｏ(O) : 某演算法時間函數的即上限 (Upperbound)，演算法在執行時所花費的時間成長，最差的情況不會超過它。通常會使用**概量**表示。<br>
+例如：當 f(n) = n^2 + 3n 這個函數，當 n 很大時，3n 會比 n^2 小很多，則可以忽略不計。當 n 趨近無限大時，f(n) 等價於 n^2 。<br>
+f(n) = 3n+2, 則f(n) = Ｏ(n)<br>
+f(n) = 5n2+3n+2, 則f(n) = Ｏ(n2)<br>
+<br>
+Omega(Ω):某演算法時間函數的下限 (Lower bound)，演算法在執行時所花費的時間成長，最好的情況也不會低於它。<br>
 通常我們使用 ` Big Ｏ notation `大Ｏ符號來表示時間複雜度。假設我們將其時間複雜度表示為`Ｏ(T(n))`，則其中`T(n)` 又稱為**執行時間的成長率**，是影響速度最大的變數。<br>
 
 下圖為`Ｏ(1)`的例子，這個演算法執行的步驟是固定的，跟輸入的值無關（不管num輸入多少，程式皆只會執行一次）：
@@ -50,7 +56,7 @@ def sum_number(num):
 
 sum_number(10)
 ```
-<img src="https://github.com/YuTe-Lai/yute-lai.github.io/blob/master/img/Big_O_complexity_chart.png?raw=true" alt="Big-O Complexity Chart"  width="700" height="600">
+<img src="https://github.com/YuTe-Lai/yute-lai.github.io/blob/master/img/Big_O_complexity_chart.png?raw=true" alt="Big-O Complexity Chart"  width="800" height="600">
 
 ### 空間複雜度：
 空間複雜度是指演算法所需要消耗的記憶體資源。其計算和表示方法與時間複雜度類似，一般也都用**概量**（asymptotic analysis）來表示。<br>
