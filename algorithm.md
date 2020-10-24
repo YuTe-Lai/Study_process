@@ -1,9 +1,34 @@
 # 資料結構
-## 陣列 Array
-陣列（如下）是有序串列的一種方式，其佔用連續的記憶體空間，各元素型態（Type）皆需相同，其支援 Sequential 及 Random Access。<br>
+### 陣列 Array
+陣列（如下）是有序串列的一種方式，其佔用連續的記憶體空間，各元素型態（Type）皆需相同，其支援循序存取（Sequential）及 隨機存取（Random Access）。<br>
 `[1,3,5,7,9]`、`['a','b','c','d','e']`<br>
 但陣列在插入、刪除元素較為麻煩：需移動其它元素，不易動態增加或刪減空間大小。<br>
 insert（4）：`[1,3,5,7,9]`->`[1,3, ,5,7,9]`->`[1,3,4,5,7,9]`<br>
+### 鏈結串列 Link Lists
+Link List由一組節點 (Node) 依照順序串列所組成的，僅支援 Sequential Access，每個Node除了有Data欄之外，必須有≥ 1 個Link欄(或稱Pointer)，用以指向下一個Node的位址，而最後一個節點的pointer將會指向null。<br>
+在建立list的一開始，我們預設裡面是沒有節點（Node）的。而link list本身帶有head跟tail兩個屬性。所以當我們加入一個新的節點時：<br>
+1.若list本身還沒有任何節點，則head以及tail都會變成新的結點。<br>
+2.若list已經包含有其他節點，則新加入的節點變成新的tail（本來的tail指向新的節點）。
+```python
+#Single link list中的每個節點只有指向下一個Node，沒有指出上一個Node，相對於有指出上一個Node的double link list。
+
+class SingleLinkList:
+    def __init__(self):
+        self.head = None
+        self.tail = None
+        return
+```
+
+各Node不用佔用連續的記憶體空間，每個Node的資料型態 (Data Type) 不一定要相同。<br>
+```python
+class ListNode:
+  def __init__(self, data): 
+    self.data = data    #儲存資料
+    self.next = None    #儲存pointer
+    return
+```
+
+Link List可以輕鬆的插入、刪除Node，只要改變Node之中的Pointer就可以了。<br>
 
 # 演算法
 演算法是一個有輸入跟輸出的解決問題的流程，它具有明確、有限步驟且有效的特性，常用於計算、資料處理和自動推理。通常在針對某一問題開發程式時，都會經過下列流程：<br>
