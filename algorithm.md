@@ -1,10 +1,10 @@
 # 資料結構
-### 陣列 Array
+## 陣列 Array
 陣列（如下）是有序串列的一種方式，其佔用連續的記憶體空間，各元素型態（Type）皆需相同，其支援循序存取（Sequential）及 隨機存取（Random Access）。<br>
 `[1,3,5,7,9]`、`['a','b','c','d','e']`<br>
 但陣列在插入、刪除元素較為麻煩：需移動其它元素，不易動態增加或刪減空間大小。<br>
 insert（4）：`[1,3,5,7,9]`->`[1,3, ,5,7,9]`->`[1,3,4,5,7,9]`<br>
-### 鏈結串列 Link Lists
+## 鏈結串列 Link Lists
 Link List由一組節點 (Node) 依照順序串列所組成的，僅支援 Sequential Access，每個Node除了有Data欄之外，必須有≥ 1 個Link欄(或稱Pointer)，用以指向下一個Node的位址，而最後一個節點的pointer將會指向null。<br>
 ```python
 #Single link list中的每個節點只有指向下一個Node，沒有指出上一個Node，相對於有指出上一個Node的double link list。
@@ -39,7 +39,7 @@ def add_list_item(self,item):
     return
 ```
 
-### 樹 Tree
+## 樹 Tree
 樹是由1個以上的Nodes所組成的有限集合，其必須滿足：<br>
 1.至少有一個節點（Node）稱為根（Root）。<br>
 2.剩下的Nodes可以分成T1、T2、...、Tn個互斥集合，稱為子集合（Subtree）。<br>
@@ -51,20 +51,19 @@ def add_list_item(self,item):
 4.子節點（Child Node）：若一個節點y前有前輩結點（Predecessor Node），則y為子節點。某節點的所有子樹（Subtree）的樹根為該節點的子節點。<br>
 5.兄弟（Sibling）：同一個父節點的所有子節點互稱為Sibling。<br>
 6.祖先（Ancestor）：從樹根到某一節點所經過的所有節點，稱為該節點的Ancestor，通常為一集合`Ancestor of C:{ A、B }`。<br>
+#### 平衡因子 Balance Factor ：
+在一個Binary Tree中，`H(左)-H(右)`代表一個節點的平衡因子。其中H(左)和H(右)分別代表左、右子集合的高度。對一顆AVL高度平衡樹裡的任一節點來說`Balance_Factor(Node)=1、-1、0`等三種情況。
 
-#### BinarySearchTree 實作：
-Binary Tree為擁有>=0個Nodes的所構成的有限集合：<br>
-1.Binary Tree可以為空的樹。<br>
-2.若不為空，則需要Root及左、右子樹，故Nodes需要有兩個pointer(left、right)。<br>
+### 二元搜尋樹 BinarySearchTree ：
+Binary Tree為擁有不小於0個Nodes的所構成的有限集合，意思就是他可以是一顆空的或非空的樹，若不為空，則需要Root及左（所有左子集合均小於Root）、右子集合（所有右子集合均大於Root）。<br>
+
 ```python
 class TreeNode(object):
     def __init__(self, x):
         self.val = x
         self.left = None
         self.right = None
-```
 
-```Python
 class solution(object):
     def insert(self, root, key):
         if root is None:
@@ -77,9 +76,6 @@ class solution(object):
                 root.left = self.insert(root.left,key)
             return root
 
-
-            
-
     def search(self, root, key):
         if root is None :
             return False
@@ -90,22 +86,16 @@ class solution(object):
         elif key < root.val:
             return self.search(root.left,key)
 
-
-        
     def inorder(self,root): 
         if root: 
             self.inorder(root.left) 
             print(root.val) 
             self.inorder(root.right) 
-            
-            
-                    
+           
     def findmin(self,root):
         while root.left is not None:
             root = root.left
         return root
-    
-    
     
     def delete(self,root,key):
         if root is None:
@@ -114,8 +104,6 @@ class solution(object):
             root.right = self.delete(root.right, key)
         elif key < root.val:
             root.left = self.delete(root.left, key)
-
-
         else:   
             if root.left is None:
                 replace = root.right  
@@ -125,16 +113,12 @@ class solution(object):
                 replace = root.left
                 root = None
                 return replace
-
-            
             else:  
                 replace = self.findmin(root.right) 
                 root.key = replace.key 
                 root.right = self.delete(root.right,replace.key)
             return root
 ```
-
-
 
 
 
