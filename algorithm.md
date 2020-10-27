@@ -38,6 +38,105 @@ def add_list_item(self,item):
     self.tail = item
     return
 ```
+<br>
+### 樹 Tree
+樹是由1個以上的Nodes所組成的有限集合，其必須滿足：<br>
+1.至少有一個節點（Node）稱為根（Root）。<br>
+2.剩下的Nodes可以分成T1、T2、...、Tn個互斥集合，稱為子集合（Subtree）。<br>
+<img src="https://github.com/YuTe-Lai/yute-lai.github.io/blob/master/img/Tree.png?raw=true" alt="tree"  width="500" height="280"><br>
+樹中的節點有分成以下幾種：<br>
+1.葉子（Leaf）:分枝度為0（沒有子集合）的節點。<br>
+2.非葉子（Non-Leaf Node、Non-Terminal Node、Internal Node）：樹中所有非葉子的節點，或是Degree >= 1的節點。<br>
+3.父節點（Parent Node）：若一個節點x後有後繼結點（Successor Node），則x為父節點。整顆樹的樹根為全部集合的父節點。<br>
+4.子節點（Child Node）：若一個節點y前有前輩結點（Predecessor Node），則y為子節點。某節點的所有子樹（Subtree）的樹根為該節點的子節點。<br>
+5.兄弟（Sibling）：同一個父節點的所有子節點互稱為Sibling。<br>
+6.祖先（Ancestor）：從樹根到某一節點所經過的所有節點，稱為該節點的Ancestor，通常為一集合`Ancestor of C:{ A、B }`。<br>
+#### BinarySearchTree 實作：
+Binary Tree為擁有>=0個Nodes的所構成的有限集合：<br>
+1.Binary Tree可以為空的樹。<br>
+2.若不為空，則需要Root及左、右子樹，故Nodes需要有兩個pointer(left、right)。<br>
+```python
+class TreeNode(object):
+    def __init__(self, x):
+        self.val = x
+        self.left = None
+        self.right = None
+```
+
+```Python
+class solution(object):
+    def insert(self, root, key):
+        if root is None:
+            root = TreeNode(key)
+            return root
+        else:
+            if key > root.val:
+                root.right = self.insert(root.right,key)
+            else:
+                root.left = self.insert(root.left,key)
+            return root
+
+
+            
+
+    def search(self, root, key):
+        if root is None :
+            return False
+        elif root.val == key:
+            return True
+        elif key > root.val:
+            return self.search(root.right,key)
+        elif key < root.val:
+            return self.search(root.left,key)
+
+
+        
+    def inorder(self,root): 
+        if root: 
+            self.inorder(root.left) 
+            print(root.val) 
+            self.inorder(root.right) 
+            
+            
+                    
+    def findmin(self,root):
+        while root.left is not None:
+            root = root.left
+        return root
+    
+    
+    
+    def delete(self,root,key):
+        if root is None:
+            return False
+        elif key > root.val:
+            root.right = self.delete(root.right, key)
+        elif key < root.val:
+            root.left = self.delete(root.left, key)
+
+
+        else:   
+            if root.left is None:
+                replace = root.right  
+                root = None            
+                return replace         
+            elif root.right is None:  
+                replace = root.left
+                root = None
+                return replace
+
+            
+            else:  
+                replace = self.findmin(root.right) 
+                root.key = replace.key 
+                root.right = self.delete(root.right,replace.key)
+            return root
+```
+
+
+
+
+
 
 # 演算法
 演算法是一個有輸入跟輸出的解決問題的流程，它具有明確、有限步驟且有效的特性，常用於計算、資料處理和自動推理。通常在針對某一問題開發程式時，都會經過下列流程：<br>
@@ -195,82 +294,6 @@ def merge(l_arr,r_arr):
     final = final + l_arr + r_arr
     return final
 
-```
-## BinarySearchTree
-```python
-class TreeNode(object):
-    def __init__(self, x):
-        self.val = x
-        self.left = None
-        self.right = None
-
-class solution(object):
-    def insert(self, root, key):
-        if root is None:
-            root = TreeNode(key)
-            return root
-        else:
-            if key > root.val:
-                root.right = self.insert(root.right,key)
-            else:
-                root.left = self.insert(root.left,key)
-            return root
-
-
-            
-
-    def search(self, root, key):
-        if root is None :
-            return False
-        elif root.val == key:
-            return True
-        elif key > root.val:
-            return self.search(root.right,key)
-        elif key < root.val:
-            return self.search(root.left,key)
-
-
-        
-    def inorder(self,root): 
-        if root: 
-            self.inorder(root.left) 
-            print(root.val) 
-            self.inorder(root.right) 
-            
-            
-                    
-    def findmin(self,root):
-        while root.left is not None:
-            root = root.left
-        return root
-    
-    
-    
-    def delete(self,root,key):
-        if root is None:
-            return False
-        elif key > root.val:
-            root.right = self.delete(root.right, key)
-        elif key < root.val:
-            root.left = self.delete(root.left, key)
-
-
-        else:   
-            if root.left is None:
-                replace = root.right  
-                root = None            
-                return replace         
-            elif root.right is None:  
-                replace = root.left
-                root = None
-                return replace
-
-            
-            else:  
-                replace = self.findmin(root.right) 
-                root.key = replace.key 
-                root.right = self.delete(root.right,replace.key)
-            return root
 ```
 
 ## HashTable
