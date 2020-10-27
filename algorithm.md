@@ -51,6 +51,7 @@ def add_list_item(self,item):
 4.子節點（Child Node）：若一個節點y前有前輩結點（Predecessor Node），則y為子節點。某節點的所有子樹（Subtree）的樹根為該節點的子節點。<br>
 5.兄弟（Sibling）：同一個父節點的所有子節點互稱為Sibling。<br>
 6.祖先（Ancestor）：從樹根到某一節點所經過的所有節點，稱為該節點的Ancestor，通常為一集合`Ancestor of C:{ A、B }`。<br>
+
 #### BinarySearchTree 實作：
 Binary Tree為擁有>=0個Nodes的所構成的有限集合：<br>
 1.Binary Tree可以為空的樹。<br>
