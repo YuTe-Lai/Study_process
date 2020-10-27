@@ -38,7 +38,7 @@ def add_list_item(self,item):
     self.tail = item
     return
 ```
-<br>
+
 ### 樹 Tree
 樹是由1個以上的Nodes所組成的有限集合，其必須滿足：<br>
 1.至少有一個節點（Node）稱為根（Root）。<br>
