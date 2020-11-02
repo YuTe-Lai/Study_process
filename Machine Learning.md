@@ -38,3 +38,16 @@
 |結構化 Structured    |序列、句子、圖、樹等|
 
 
+## 機器學習的方法
+  在機器學習的過程中，我們真正希望的是能讓機器去預測新的問題，所以真正的目標是能將「沒有看過的Data」預測好，而不只是將取樣的Data預測好就夠了。因此，我們要建立一個Learning Model可以確保
+Ein≈Eout，所以在Learning Algorithm選出最小Ein的Hypothesis的同時，這組Hypothesis也可以很好的預測Out-sample，我們才可以說機器已經會學習了。<br>
+註：<br>
+In-Sample-Data：抽樣的Data（Train-Data）。<br>
+In-sample Error(Ein)：Hypothesis預測In-sample Data的誤差。<br>
+Out-Sample-Data：未被抽樣的Data（Test-Data）。<br>
+Out-of-sample Error（Eout）：Hypothesis預測Out-of-sample Data的誤差。<br>
+
+  
+  
+  
+  
