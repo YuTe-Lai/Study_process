@@ -46,15 +46,15 @@ In-Sample-Data：抽樣的Data（Train-Data）。<br>
 In-sample Error(Ein)：Hypothesis預測In-sample Data的誤差。<br>
 Out-Sample-Data：未被抽樣的Data（Test-Data）。<br>
 Out-of-sample Error（Eout）：Hypothesis預測Out-of-sample Data的誤差。<br>
-
+#### 證明
 而下面是根據Hoeffding不等式，來解釋Ein≈Eout這個條件：<br>
 <img src="https://github.com/YuTe-Lai/yute-lai.github.io/blob/master/img/ML_EinEout.png?raw=true" alt="ML_EinEout"  width="500" height="270"><br>
-假設今天有個桶子裡面包含綠色跟橘色兩種顏色的球，如果今天桶子內橘色球佔的比例為μ，而今天我們從中隨機抽樣出N顆小球，並且計算出這N顆小球中橘色佔的比例為ν，這個時候μ=ν不一定會成立，但可以想像得到μ跟ν也不至於差太多，所以Hoeffding不等式就告訴我們|μ−ν|會被限制在一個範圍內，表示為：`ℙ[|ν−μ|>ε]≤2exp(−2ε2N)`，當ε（threshold）越大，出現的機率就越低。<br>
+假設今天有個桶子裡面包含綠色跟橘色兩種顏色的球，如果今天桶子內橘色球佔的比例為μ，而今天我們從中隨機抽樣出N顆小球，並且計算出這N顆小球中橘色佔的比例為ν，這個時候μ=ν不一定會成立，但可以想像得到μ跟ν也不至於差太多，所以Hoeffding不等式就告訴我們|μ−ν|會被限制在一個範圍內，表示為：`ℙ[|ν−μ|>ε]≤2exp(−2ε^2N)`，當ε（threshold）越大，出現的機率就越低。<br>
 <br>
-而我們再用每一個Hypothesis預測Data結果的好壞代替橘球跟綠球，預測正確是綠球，預測失敗是橘球，所以對於In-Sample-Data來說：`ν = Ein(h)`，對於Out-Sample來說：`μ = Eout(h)`。套入剛剛的不等式，得`ℙ[|Ein(h)−Eout(h)|>ε]≤2exp(−2ε2N)`。<br>
+而我們再用每一個Hypothesis預測Data結果的好壞代替橘球跟綠球，預測正確是綠球，預測失敗是橘球，所以對於In-Sample-Data來說：`ν = Ein(h)`，對於Out-Sample來說：`μ = Eout(h)`。套入剛剛的不等式，得`ℙ[|Ein(h)−Eout(h)|>ε]≤2exp(−2ε^2N)`，我們這邊將超過ε的Data定義為Bad Data，那就可以確定Ein和Eout差距超過ε的可能性是被限制住的，當ε越大，出現的機率就越低。<br>
 <br>
-而事實上我們不會只有一個Hypothesis，所以當我們考慮有M個Hypothses時，有可能每個Hypothsis出現Bad Data的地方都不盡相同，因此會減少能使用的Data。而其中最慘的情況就是在M個Hypotheses裡的每份Bad Data彼此都沒有交集，所以把這些出現Bad Data的機率取聯集得到以下式子：`ℙ[∃h∈ℍ s.t. |Ein(h)−Eout(h)|>ε]≤2Mexp(−2ε2N)`。
-
+而事實上我們不會只有一個Hypothesis，所以當我們考慮有M個Hypothses時，有可能每個Hypothsis出現Bad Data的地方都不盡相同，因此會減少能使用的Data。而其中最慘的情況就是在M個Hypotheses裡的每份Bad Data彼此都沒有交集，所以把這些出現Bad Data的機率取聯集得到以下式子：`ℙ[∃h∈ℍ s.t. |Ein(h)−Eout(h)|>ε]≤2Mexp(−2ε^2N)`。<br>
+<br>
 
 目前為止可以得到一個結論：當資料量N夠大時，且Hypothesis的數量不是無限大的時候，基本上Ein≈Eout就成立。
 
