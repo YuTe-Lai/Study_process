@@ -15,7 +15,7 @@ class SingleLinkList:
         self.tail = None
         return
 ```
-各Node不用佔用連續的記憶體空間，每個Node的資料型態 (Data Type) 不一定要相同。Link List可以輕鬆的插入、刪除Node，只要改變Node之中的Pointer就可以了。<br>
+各Node不用佔用連續的記憶體空間，每個Node的資料型態 (Data Type) 不一定要相同。<br>
 ```python
 class ListNode:
   def __init__(self, data): 
@@ -38,6 +38,67 @@ def add_list_item(self,item):
     self.tail = item
     return
 ```
+Link List可以輕鬆的插入、刪除Node，只要改變Node之中的Pointer就可以了。<br>
+#### Insert:
+將資料item插入在串列list中的節點x 之後。<br>
+<img src="https://github.com/YuTe-Lai/yute-lai.github.io/blob/master/img/DS_linklist_insert.png?raw=true" alt="Link List_Insert"  width="600" height="200"><br>
+```python
+class Linklist:
+    def insert(self,prev_node, insert_data):
+#確認前一個node存不存在
+        if prev_node is None:  
+            print("The previous node must in LinkedList!")
+            return
+#將要插入的Data存成Node
+        new_node = Node(insert_data) 
+#用new_node.next取代prev_node.next
+        new_node.next = prev_node.next
+#把prev_node.next指向new_node
+        prev_node.next = new_node
+```
+#### Delete:
+刪除Link List的節點時，會先改變串列的指標，以做到邏輯性移除(Logically Remove)的動作，再將被移除的節點做實際刪除（從記憶體中刪除）。<br>
+<img src="https://github.com/YuTe-Lai/yute-lai.github.io/blob/master/img/DS_linklist_delete.png?raw=true" alt="Link List_Delete"  width="600" height="320"><br>
+```python
+class Linklist:
+    def delete(self, key):
+        #先將head暫存起來  
+        temp = self.head  
+        #確認head不為空
+        if (temp is not None):  
+            #CASE1：若要刪除第一個node
+            if (temp.data == key):  
+                #用第二個node取代head
+                self.head = temp.next
+                #從記憶體中刪除
+                temp = None
+                return
+  
+        #從head開始搜尋要刪除的目標key
+        while(temp is not None):  
+            if temp.data == key:  
+                break
+            
+            prev = temp  
+            temp = temp.next
+  
+        #如果key不在LinkList裡  
+        if(temp == None):  
+            return
+  
+        #將key node從Link List裡取出
+        prev.next = temp.next
+        #從記憶體中刪除
+        temp = None
+```
+### 其他Link List種類
+#### Double Link List:
+串列中各節點除了Data欄之外，另外有2 個Link欄，用以指向前一個與下一個節點之位址。<br>
+<img src="https://github.com/YuTe-Lai/yute-lai.github.io/blob/master/img/DS_Double_linklist.png?raw=true" alt="Double Link List"  width="666" height="230"><br>
+
+#### Circularly Link List:
+將Single Link List中，最後一個node的指標指回第一個node。<br>
+<img src="https://github.com/YuTe-Lai/yute-lai.github.io/blob/master/img/DS_Circularly_linklist.png?raw=true" alt="Circularly Link List"  width="666" height="230"><br>
 
 ## 樹 Tree
 樹是由1個以上的Nodes所組成的有限集合，其必須滿足：<br>
