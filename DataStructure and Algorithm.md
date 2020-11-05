@@ -24,8 +24,8 @@ class ListNode:
     return
 ```
 在建立list的一開始，我們預設裡面是沒有節點（Node）的。而link list本身帶有head跟tail兩個屬性。所以當我們加入一個新的節點時：<br>
-1.若list本身還沒有任何節點，則head以及tail都會變成新的結點。<br>
-2.若list已經包含有其他節點，則新加入的節點變成新的tail（本來的tail指向新的節點）。
+- 若list本身還沒有任何節點，則head以及tail都會變成新的結點。<br>
+- 若list已經包含有其他節點，則新加入的節點變成新的tail（本來的tail指向新的節點）。
 
 ```python
 def add_list_item(self,item):
@@ -39,7 +39,7 @@ def add_list_item(self,item):
     return
 ```
 Link List可以輕鬆的插入、刪除Node，只要改變Node之中的Pointer就可以了。<br>
-#### Insert:
+### Insert:
 將資料item插入在串列list中的節點x 之後。<br>
 <img src="https://github.com/YuTe-Lai/yute-lai.github.io/blob/master/img/DS_linklist_insert.png?raw=true" alt="Link List_Insert"  width="600" height="200"><br>
 ```python
@@ -56,7 +56,7 @@ class Linklist:
 #把prev_node.next指向new_node
         prev_node.next = new_node
 ```
-#### Delete:
+### Delete:
 刪除Link List的節點時，會先改變串列的指標，以做到邏輯性移除(Logically Remove)的動作，再將被移除的節點做實際刪除（從記憶體中刪除）。<br>
 <img src="https://github.com/YuTe-Lai/yute-lai.github.io/blob/master/img/DS_linklist_delete.png?raw=true" alt="Link List_Delete"  width="600" height="320"><br>
 ```python
@@ -102,16 +102,16 @@ class Linklist:
 
 ## 樹 Tree
 樹是由1個以上的Nodes所組成的有限集合，其必須滿足：<br>
-1.至少有一個節點（Node）稱為根（Root）。<br>
-2.剩下的Nodes可以分成T1、T2、...、Tn個互斥集合，稱為子集合（Subtree）。<br>
+- 至少有一個節點（Node）稱為根（Root）。<br>
+- 剩下的Nodes可以分成T1、T2、...、Tn個互斥集合，稱為子集合（Subtree）。<br>
 <img src="https://github.com/YuTe-Lai/yute-lai.github.io/blob/master/img/Tree.png?raw=true" alt="tree"  width="500" height="280"><br>
 樹中的節點有分成以下幾種：<br>
-1.葉子（Leaf）:分枝度為0（沒有子集合）的節點。<br>
-2.非葉子（Non-Leaf Node、Non-Terminal Node、Internal Node）：樹中所有非葉子的節點，或是Degree >= 1的節點。<br>
-3.父節點（Parent Node）：若一個節點x後有後繼結點（Successor Node），則x為父節點。整顆樹的樹根為全部集合的父節點。<br>
-4.子節點（Child Node）：若一個節點y前有前輩結點（Predecessor Node），則y為子節點。某節點的所有子樹（Subtree）的樹根為該節點的子節點。<br>
-5.兄弟（Sibling）：同一個父節點的所有子節點互稱為Sibling。<br>
-6.祖先（Ancestor）：從樹根到某一節點所經過的所有節點，稱為該節點的Ancestor，通常為一集合`Ancestor of C:{ A、B }`。<br>
+- 葉子（Leaf）:分枝度為0（沒有子集合）的節點。<br>
+- 非葉子（Non-Leaf Node、Non-Terminal Node、Internal Node）：樹中所有非葉子的節點，或是Degree >= 1的節點。<br>
+- 父節點（Parent Node）：若一個節點x後有後繼結點（Successor Node），則x為父節點。整顆樹的樹根為全部集合的父節點。<br>
+- 子節點（Child Node）：若一個節點y前有前輩結點（Predecessor Node），則y為子節點。某節點的所有子樹（Subtree）的樹根為該節點的子節點。<br>
+- 兄弟（Sibling）：同一個父節點的所有子節點互稱為Sibling。<br>
+- 祖先（Ancestor）：從樹根到某一節點所經過的所有節點，稱為該節點的Ancestor，通常為一集合`Ancestor of C:{ A、B }`。<br>
 #### 平衡因子 Balance Factor ：
 在一個Binary Tree中，`H(左)-H(右)`代表一個節點的平衡因子。其中H(左)和H(右)分別代表左、右子集合的高度。對一顆AVL高度平衡樹裡的任一節點來說`Balance_Factor(Node)=1、-1、0`等三種情況。
 
@@ -181,6 +181,27 @@ class solution(object):
             return root
 ```
 
+## 堆疊 Stack
+堆疊是具有LIFO (last in-first out)或FILO (first in-last out) 性質的有序串列。其插入元素的動作稱為Push, 刪除元素的動作稱為Pop。而Push/Pop的動作皆發生在同一端，此端稱為Top。<br>
+<img src="https://github.com/YuTe-Lai/yute-lai.github.io/blob/master/img/DS_Stack.png?raw=true" alt="Stack"  width="666" height="266"><br>
+### 堆疊的應用:電腦四則運算
+#### 中序式
+一般的算式，主要是將運算元（數字）放在運算子（符號）的兩旁，例如a+b/d這樣的式子，這稱之為中序（Infix）表示式，對於人類來說，這樣的式子很容易理解，但由於電腦執行指令時是有順序的，遇到中序表示式時，無法直接進行運算，而必須進一步判斷運算的先後順序，所以必須將中序表示式轉換為另一種表示方法。
+#### 前序式
+後序（Postfix）表示式，又稱為逆向波蘭表示式（Reverse polish notation），例如`(a+b)*(c+d)`這個式子，表示為後序表示式時是`ab+cd+*`。
+#### 後序式
+前序（Prefix）表示式，波蘭表示式（Polish notation），例如剛剛`(a+b)*(c+d)`的式子，表示為前序表示式為`*+ab+cd`。
+#### 運算式的轉換
+由中序表示法轉換成前/後序表示法的方法有兩種：<br>
+- 加括號去除法：這種方法是人類使用的方法，將運算子兩旁的運算元依先後順序全括號起來，然後將所有的右括號取代為左邊最接近的運算子（從最內層括號開始），最後去掉所有的左括號就可以完成後序表示式。
+例如：<br>
+`a+b*d+c/d`   =>    `((a+(b*d))+(c/d))` -> `abd*+cd/+`
+
+- 堆疊處理法：由左而右掃描資料，依據資料是運算元或運算子作不同的處理，運算子還要考慮其優先次序。直接敘述演算法的話就是使用迴圈，取出中序式的字元，遇到運算元直接輸出；堆疊運算子與左括號；堆疊中運算子優先順序若大於等於讀入的運算子優先順序的話，直接輸出堆疊中的運算子，再將讀入的運算子置入堆疊；遇右括號輸出堆疊中的運算子至左括號。<br>
+
+<img src="https://github.com/YuTe-Lai/yute-lai.github.io/blob/master/img/DS_Stack_caculate.png?raw=true" alt="By Stack" width="326" height="411">
+
+
 
 
 
@@ -192,11 +213,11 @@ class solution(object):
 ## Step 2：設計演算法
 ### 演算法的定義：
 高德納(Donald Ervin Knuth) 在《電腦程式設計藝術》裡歸納出一個演算法需要俱備的五個特性：<br>
-1.輸入：一個演算法必須有0或多個輸入<br>
-2.輸出：一個演算法應至少有一個或以上的輸出結果（ 有可能是 0 或是 null ）<br>
-3.明確性：演算法的每個指令或步驟描述必須明確，以保證演算法的實際執行結果是確實符合要求<br>
-4.有限性：在有限步驟後一定會結束，不會進入無窮迴圈<br>
-5.有效性：又稱可行性。演算法中描述的步驟都是可以運算的<br>
+- 輸入：一個演算法必須有0或多個輸入<br>
+- 輸出：一個演算法應至少有一個或以上的輸出結果（ 有可能是 0 或是 null ）<br>
+- 明確性：演算法的每個指令或步驟描述必須明確，以保證演算法的實際執行結果是確實符合要求<br>
+- 有限性：在有限步驟後一定會結束，不會進入無窮迴圈<br>
+- 有效性：又稱可行性。演算法中描述的步驟都是可以運算的<br>
 <br>
 而怎麼樣才能設計一個符合定義的演算法呢？常見的方法有兩種： **流程圖** 、 **虛擬碼** 。
 
