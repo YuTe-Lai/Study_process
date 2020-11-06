@@ -201,6 +201,31 @@ class solution(object):
 
 <img src="https://github.com/YuTe-Lai/yute-lai.github.io/blob/master/img/DS_Stack_caculate.png?raw=true" alt="By Stack" width="326" height="411">
 
+## 佇列 Queue
+Queue是具有FIFO(First-In-First-Out)或LILO(Last-In-Last-Out)的資料結構，就像排隊買票的隊伍即可視為Queue，先進入隊伍的人，可以優先買票離開隊伍，而後到的人，就需要等隊伍前面的人都買完票後才能買。<br>
+如同普遍認知的排隊隊伍，Queue也具有以下特徵：<br>
+- 隊伍有前方(以front表示)以及後方(以rear表示)之分。
+- 若要進入隊伍(Push)，一定是從rear(back)進入。把資料從Queue的「後面」放進Queue，並更新成新的rear。
+- 若要離開隊伍(Pop)，一定是從front離開。把front所指向的資料從Queue中移除，並更新front。
+<img src="https://github.com/YuTe-Lai/yute-lai.github.io/blob/master/img/DS_Queue.png?raw=true" alt="Queue" width="666" height="196"><br>
+一般的Queue，會有以下幾個處理資料結構的功能：<br>
+- getFront：回傳front所指向的資料。
+- getBack：回傳rear所指向的資料。
+- IsEmpty：確認Queue裡是否有資料。
+- getSize：回傳Queue裡的資料個數。
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
