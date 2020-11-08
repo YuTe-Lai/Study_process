@@ -53,10 +53,19 @@ Out-of-sample Error（Eout）：Hypothesis預測Out-of-sample Data的誤差。<b
 <br>
 而我們再用每一個Hypothesis預測Data結果的好壞代替橘球跟綠球，預測正確是綠球，預測失敗是橘球，所以對於In-Sample-Data來說：`ν = Ein(h)`，對於Out-Sample來說：`μ = Eout(h)`。套入剛剛的不等式，得`ℙ[|Ein(h)−Eout(h)|>ε]≤2exp(−2ε^2N)`，我們這邊將超過ε的Data定義為Bad Data，那就可以確定Ein和Eout差距超過ε的可能性是被限制住的，當ε越大，出現的機率就越低。<br>
 <br>
-而事實上我們不會只有一個Hypothesis，所以當我們考慮有M個Hypothses時，有可能每個Hypothsis出現Bad Data的地方都不盡相同，因此會減少能使用的Data。而其中最慘的情況就是在M個Hypotheses裡的每份Bad Data彼此都沒有交集，所以把這些出現Bad Data的機率取聯集得到以下式子：`ℙ[∃h∈ℍ s.t. |Ein(h)−Eout(h)|>ε]≤2Mexp(−2ε^2N)`。<br>
+而事實上我們不會只有一個Hypothesis，所以當我們考慮有M個Hypothses時，有可能每個Hypothsis出現Bad Data的地方都不盡相同，因此會減少能使用的Data。而最慘的情況就是在M個Hypotheses裡的每份Bad Data彼此都沒有重複，所以把這些出現Bad Data的機率取聯集得到以下式子：`ℙ[∃h∈ℍ s.t. |Ein(h)−Eout(h)|>ε]≤2Mexp(−2ε^2N)`。<br>
 <br>
+目前為止可以得到一個結論：當資料量N夠大時，且Hypothesis的數量不是無限大的時候，基本上Ein≈Eout就成立。然而當Hypothesis的數量是無限的情況呢？<br>
+我們剛剛採用的假設是每組Hypotheses的Bad Data彼此間都沒有重疊，所以在M是無限大的情況下，當然會有一個無限大的上限值，但如果考慮了Bad Data重疊的情形，縱使M是無限大，還是有機會把Bad Data的出現機率壓在一個有限的值之下。<br>
+<br>
+然而讓我們回到二元分類問題，如果今天在二維平面上做二元分類：<br>
+- 當資料量n=1時，就算你的Hypotheses有無窮多種，但對於一組Data來說就只有兩種Hypotheses而已：`H{o,x}`。
+- 當資料量n=2時，一樣是無限多組切法但Hypotheses也只能歸類成4類：`H{oo,ox,xo,xx}`。
+- 當資料量n=3時，在一樣的邏輯下，Hypotheses只能歸類成8類：`H{ooo,oox,oxo,xoo,oxx,xox,xxo,xxx}`。<br>
+不過在某些情況下，比如說當資料共線的時候，當資料量n=3時，在一樣的邏輯下，Hypotheses變成只能歸類成6類（如下圖，右圖第三行為線性不可分割，故不考慮）：<br>
+<img src="https://github.com/YuTe-Lai/yute-lai.github.io/blob/master/img/ML_Effective_Number_of_Lines.png?raw=true" alt="Effective_Number_of_Lines"  width="942" height="288"><br>
+因此我們擔心的「當Data數量增加而造成Hypotheses的種類暴增」的情形被排除了，有一些狀況是不會出現的，故Hypotheses是有重疊的。<br>
 
-目前為止可以得到一個結論：當資料量N夠大時，且Hypothesis的數量不是無限大的時候，基本上Ein≈Eout就成立。
 
   
   
