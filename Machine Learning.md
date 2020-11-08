@@ -48,7 +48,7 @@ Out-Sample-Data：未被抽樣的Data（Test-Data）。<br>
 Out-of-sample Error（Eout）：Hypothesis預測Out-of-sample Data的誤差。<br>
 #### 證明
 而下面是根據Hoeffding不等式，來解釋Ein≈Eout這個條件：<br>
-<img src="https://github.com/YuTe-Lai/yute-lai.github.io/blob/master/img/ML_EinEout.png?raw=true" alt="ML_EinEout"  width="500" height="270"><br>
+<img src="https://github.com/YuTe-Lai/yute-lai.github.io/blob/master/img/ML_EinEout.png?raw=true" alt="ML_EinEout"  width="600" height="320"><br>
 假設今天有個桶子裡面包含綠色跟橘色兩種顏色的球，如果今天桶子內橘色球佔的比例為μ，而今天我們從中隨機抽樣出N顆小球，並且計算出這N顆小球中橘色佔的比例為ν，這個時候μ=ν不一定會成立，但可以想像得到μ跟ν也不至於差太多，所以Hoeffding不等式就告訴我們|μ−ν|會被限制在一個範圍內，表示為：`ℙ[|ν−μ|>ε]≤2exp(−2ε^2N)`，當ε（threshold）越大，出現的機率就越低。<br>
 <br>
 而我們再用每一個Hypothesis預測Data結果的好壞代替橘球跟綠球，預測正確是綠球，預測失敗是橘球，所以對於In-Sample-Data來說：`ν = Ein(h)`，對於Out-Sample來說：`μ = Eout(h)`。套入剛剛的不等式，得`ℙ[|Ein(h)−Eout(h)|>ε]≤2exp(−2ε^2N)`，我們這邊將超過ε的Data定義為Bad Data，那就可以確定Ein和Eout差距超過ε的可能性是被限制住的，當ε越大，出現的機率就越低。<br>
@@ -63,7 +63,7 @@ Out-of-sample Error（Eout）：Hypothesis預測Out-of-sample Data的誤差。<b
 - 當資料量n=2時，一樣是無限多組切法但Hypotheses也只能歸類成4類：`H{oo,ox,xo,xx}`。
 - 當資料量n=3時，在一樣的邏輯下，Hypotheses只能歸類成8類：`H{ooo,oox,oxo,xoo,oxx,xox,xxo,xxx}`。<br>
 不過在某些情況下，比如說當資料共線的時候，當資料量n=3時，在一樣的邏輯下，Hypotheses變成只能歸類成6類（如下圖，右圖第三行為線性不可分割，故不考慮）：<br>
-<img src="https://github.com/YuTe-Lai/yute-lai.github.io/blob/master/img/ML_Effective_Number_of_Lines.png?raw=true" alt="Effective_Number_of_Lines"  width="942" height="288"><br>
+<img src="https://github.com/YuTe-Lai/yute-lai.github.io/blob/master/img/ML_Effective_Number_of_Lines.png?raw=true" alt="Effective_Number_of_Lines"  width="946" height="273"><br>
 因此我們擔心的「當Data數量增加而造成Hypotheses的種類暴增」的情形被排除了，有一些狀況是不會出現的，故Hypotheses是有重疊的。<br>
 
 
