@@ -112,11 +112,30 @@ class Linklist:
 - 子節點（Child Node）：若一個節點y前有前輩結點（Predecessor Node），則y為子節點。某節點的所有子樹（Subtree）的樹根為該節點的子節點。<br>
 - 兄弟（Sibling）：同一個父節點的所有子節點互稱為Sibling。<br>
 - 祖先（Ancestor）：從樹根到某一節點所經過的所有節點，稱為該節點的Ancestor，通常為一集合`Ancestor of C:{ A、B }`。<br>
-#### 平衡因子 Balance Factor ：
+#### 平衡因子 Balance Factor：
 在一個Binary Tree中，`H(左)-H(右)`代表一個節點的平衡因子。其中H(左)和H(右)分別代表左、右子集合的高度。對一顆AVL高度平衡樹裡的任一節點來說`Balance_Factor(Node)=1、-1、0`等三種情況。
 
-### 二元搜尋樹 BinarySearchTree ：
-Binary Tree為擁有不小於0個Nodes的所構成的有限集合，意思就是他可以是一顆空的或非空的樹，若不為空，則需要Root及左（所有左子集合均小於Root）、右子集合（所有右子集合均大於Root）。<br>
+### 二元樹 Binary Tree：
+Binary Tree為擁有不小於0個Nodes的所構成的有限集合，意思就是他可以是一顆空的或非空的樹，若不為空，則需要Root及左、右子集合。<br>
+- 二元樹中，第i個Level的node個數最多有`2^(i-1)`個。
+- 高度為H的二元樹中，其node個數最多有`2^H -1`個。
+- 非空的二元樹中，若leaf個數為n個，分枝度（degree）為2的node個數為m個，則`n=m+1`。
+<br>
+
+#### 具有最多Node個數的二元樹稱為：Full Binary Tree 
+- 所有leaf nodes具有相同的level(或相同的height)
+- 所有非leaf的nodes都有兩個subtree
+- 高度為H，其Node個數必為`2^H -1`
+- Full B.T 下具有n個Node，其高度必為`log2(n+1)`
+#### 若一棵樹的node按照Full Binary Tree的次序排列(由上至下，由左至右)，則稱此樹為：Complete Binary Tree
+下圖中的樹共有11個node，但是第11個node(K)應該要是第5個node(E)的child，因此，此樹並非Complete Binary Tree。
+<img src="https://github.com/YuTe-Lai/yute-lai.github.io/blob/master/img/DS_Complete_binary_tree.png?raw=true" alt="complete binary tree"  width="420" height="300"><br>
+
+### 二元搜尋樹 Binary Search Tree：
+二元搜尋樹常應用於排序（Sort）或搜尋（Search）。其定義與二元樹（Binary Tree）一樣，不過二元搜尋樹如果不為空除了需要Root及左、右子集合外，還需滿足左子集合中所有node鍵值均小於Root，右子集合亦然。
+
+
+### Tracing Tree
 
 ```python
 class TreeNode(object):
