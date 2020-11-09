@@ -4,6 +4,14 @@
 `[1,3,5,7,9]`、`['a','b','c','d','e']`<br>
 但陣列在插入、刪除元素較為麻煩：需移動其它元素，不易動態增加或刪減空間大小。<br>
 insert（4）：`[1,3,5,7,9]`->`[1,3, ,5,7,9]`->`[1,3,4,5,7,9]`<br>
+
+
+
+
+
+
+
+
 ## 鏈結串列 Link Lists
 Link List由一組節點 (Node) 依照順序串列所組成的，僅支援 Sequential Access，每個Node除了有Data欄之外，必須有≥ 1 個Link欄(或稱Pointer)，用以指向下一個Node的位址，而最後一個節點的pointer將會指向null。<br>
 ```python
@@ -100,6 +108,18 @@ class Linklist:
 將Single Link List中，最後一個node的指標指回第一個node。<br>
 <img src="https://github.com/YuTe-Lai/yute-lai.github.io/blob/master/img/DS_Circularly_linklist.png?raw=true" alt="Circularly Link List"  width="666" height="230"><br>
 
+
+
+
+
+
+
+
+
+
+
+
+
 ## 樹 Tree
 樹是由1個以上的Nodes所組成的有限集合，其必須滿足：<br>
 - 至少有一個節點（Node）稱為根（Root）。<br>
@@ -112,8 +132,6 @@ class Linklist:
 - 子節點（Child Node）：若一個節點y前有前輩結點（Predecessor Node），則y為子節點。某節點的所有子樹（Subtree）的樹根為該節點的子節點。<br>
 - 兄弟（Sibling）：同一個父節點的所有子節點互稱為Sibling。<br>
 - 祖先（Ancestor）：從樹根到某一節點所經過的所有節點，稱為該節點的Ancestor，通常為一集合`Ancestor of C:{ A、B }`。<br>
-#### 平衡因子 Balance Factor：
-在一個Binary Tree中，`H(左)-H(右)`代表一個節點的平衡因子。其中H(左)和H(右)分別代表左、右子集合的高度。對一顆AVL高度平衡樹裡的任一節點來說`Balance_Factor(Node)=1、-1、0`等三種情況。
 
 ### 二元樹 Binary Tree：
 Binary Tree為擁有不小於0個Nodes的所構成的有限集合，意思就是他可以是一顆空的或非空的樹，若不為空，則需要Root及左、右子集合。<br>
@@ -131,11 +149,20 @@ Binary Tree為擁有不小於0個Nodes的所構成的有限集合，意思就是
 下圖中的樹共有11個node，但是第11個node(K)應該要是第5個node(E)的child，因此，此樹並非Complete Binary Tree。
 <img src="https://github.com/YuTe-Lai/yute-lai.github.io/blob/master/img/DS_Complete_binary_tree.png?raw=true" alt="complete binary tree"  width="420" height="300"><br>
 
+#### 平衡因子 Balance Factor：
+在一個Binary Tree中，`H(左)-H(右)`代表一個節點的平衡因子。其中H(左)和H(右)分別代表左、右子集合的高度。對一顆AVL高度平衡樹裡的任一節點來說`Balance_Factor(Node)=1、-1、0`等三種情況。
+<br>
+
+#### 二元樹追蹤 Tracing Tree
+二元樹追蹤主要是拜訪樹中每個節點一次，而tracing有兩種方式：<br>
+- 深度優先 Depth First：由根節點出發，沿著某一子樹由上到下垂直走訪到底，再回到上一個Level選擇其他子樹遞迴處理。
+<img src="https://github.com/YuTe-Lai/yute-lai.github.io/blob/master/img/DS_Depth_first.png?raw=true" alt="Depth First"  width="420" height="300"><br>
+- 廣度優先 Breadth First：由根節點出發，依水平方向由左到右，將同一Level處理完後再選擇下一個Level遞迴處理。
+<img src="https://github.com/YuTe-Lai/yute-lai.github.io/blob/master/img/DS_Breadth_first.png?raw=true" alt="Breadth First"  width="420" height="300"><br>
+
 ### 二元搜尋樹 Binary Search Tree：
-二元搜尋樹常應用於排序（Sort）或搜尋（Search）。其定義與二元樹（Binary Tree）一樣，不過二元搜尋樹如果不為空除了需要Root及左、右子集合外，還需滿足左子集合中所有node鍵值均小於Root，右子集合亦然。
-
-
-### Tracing Tree
+二元搜尋樹常應用於排序（Sort）或搜尋（Search）。其定義與二元樹（Binary Tree）一樣，不過二元搜尋樹如果不為空除了需要Root及左、右子集合外，還需滿足左子集合中所有node鍵值均小於Root，右子集合亦然。<br>
+<img src="https://github.com/YuTe-Lai/yute-lai.github.io/blob/master/img/DS_Binary_search_tree.png?raw=true" alt="Binary Search Tree"  width="700" height="200"><br>
 
 ```python
 class TreeNode(object):
@@ -199,6 +226,50 @@ class solution(object):
                 root.right = self.delete(root.right,replace.key)
             return root
 ```
+### 霍夫曼樹 Huffman Tree
+霍夫曼樹(Huffman Tree)是二元搜尋樹的延伸應用，它是霍夫曼(D.A.Huffman)的編碼模式，在霍夫曼編碼當中將資料視為有權重的葉子，再將各資料依出現頻率及次數加以分類，構築出一個叫**霍夫曼樹**的樹狀資料結構，然後再加以分配資料的位元列。<br>
+#### 特性：
+- 霍夫曼樹可用來編碼，也可用來解碼以達成資料壓縮的目的。
+- 根據資料出現頻率多寡來建造的二元樹 。
+- 霍夫曼樹的樹葉節點用以儲存資料元素 。
+- 若該元素出現頻率愈高則從根節點到該元素所經過的節點路徑愈短，反之則愈長。
+#### 結構：
+step.1 從資料裡找出兩個出現頻率最低者，並將他們合併為新資料出現的頻率。<br>
+step.2 將剛剛產生的新資料與下一個出現頻率最低者合併為新的資料，遞迴處理，直到所有節點都被放入霍夫曼樹之中。<br>
+<img src="https://github.com/YuTe-Lai/yute-lai.github.io/blob/master/img/DS_Huffman_tree_structure.png?raw=true" alt="Huffman Tree"  width="600" height="300"><br>
+step.3 樹被求出來之後，從根節點開始往左邊為'0'，往右為'1'（可以相反），將走到某一Leaf之前所經路程的值沃維資料的編碼。<br>
+<img src="https://github.com/YuTe-Lai/yute-lai.github.io/blob/master/img/DS_Huffman_tree_structure2.png?raw=true" alt="Huffman Tree"  width="500" height="240"><br>
+#### 資料壓縮率
+- 原本的資料量：`8bit*(2+3+5+7+9+13) = 312`
+- 霍夫曼編碼後：`2bit*(7+9+13) + 3bit*(3) + 4bit*(2+3) = 87`
+- 壓縮率：`（1-(87/312)）*100% = 72.12%`
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 ## 堆疊 Stack
 堆疊是具有LIFO (last in-first out)或FILO (first in-last out) 性質的有序串列。其插入元素的動作稱為Push, 刪除元素的動作稱為Pop。而Push/Pop的動作皆發生在同一端，此端稱為Top。<br>
@@ -219,6 +290,17 @@ class solution(object):
 - 堆疊處理法：由左而右掃描資料，依據資料是運算元或運算子作不同的處理，運算子還要考慮其優先次序。直接敘述演算法的話就是使用迴圈，取出中序式的字元，遇到運算元直接輸出；堆疊運算子與左括號；堆疊中運算子優先順序若大於等於讀入的運算子優先順序的話，直接輸出堆疊中的運算子，再將讀入的運算子置入堆疊；遇右括號輸出堆疊中的運算子至左括號。<br>
 
 <img src="https://github.com/YuTe-Lai/yute-lai.github.io/blob/master/img/DS_Stack_caculate.png?raw=true" alt="By Stack" width="326" height="411">
+
+
+
+
+
+
+
+
+
+
+
 
 ## 佇列 Queue
 Queue是具有FIFO(First-In-First-Out)或LILO(Last-In-Last-Out)的資料結構，就像排隊買票的隊伍即可視為Queue，先進入隊伍的人，可以優先買票離開隊伍，而後到的人，就需要等隊伍前面的人都買完票後才能買。<br>
