@@ -244,21 +244,40 @@ step.3 樹被求出來之後，從根節點開始往左邊為'0'，往右為'1'�
 - 霍夫曼編碼後：`2bit*(7+9+13) + 3bit*(3) + 4bit*(2+3) = 87`
 - 壓縮率：`（1-(87/312)）*100% = 72.12%`
 
+### 最大/最小堆積樹 Heaps Tree
+堆積樹（Heap Tree）是一種完整二元樹，若堆積樹的父節點小於子節點，則稱之為最小堆積樹(Min Heap Tree)，若父節點大於子節點，則稱之為最大堆積樹(Max Heap Tree)。<br>
+<img src="https://github.com/YuTe-Lai/yute-lai.github.io/blob/master/img/DS_Max_Heap_Tree.png?raw=true" alt="Max Heap Tree"  width="600" height="450">
+#### 作法：
+- 先將資料建立成完整二元樹。
+- 在完整二元樹中找出最大值並依序移到樹根。
+- 在完整二元樹中找出次大的值，並與其上一層的父節點比較，如果大於時，則交換，否則，不須作任何交換。
+- 重覆步驟3，直到全部的節點的鍵值大於它的左子樹與右子樹的鍵值，即可成一棵最大堆積樹。
+<br>
+----------------------------------------------------------------------------------------------------------------------------
+<img src="https://github.com/YuTe-Lai/yute-lai.github.io/blob/master/img/DS_Min_Heap_Tree.png?raw=true" alt="Min Heap Tree"  width="600" height="420">
+
+#### 作法：
+- 先將資料建立成完整二元樹。
+- 在完整二元樹中找出最小值並依序移到樹根。
+- 在完整二元樹中找出次小的值，並與其上一層的父節點比較，如果小於時，則交換，否則，不須作任何交換。
+- 重覆步驟3，直到全部的節點的鍵值小於它的左子樹與右子樹的鍵值，即可成一棵最小堆積樹。
 
 
+### 最大-最小堆積樹 Max-Min Heaps Tree
+#### 定義：
+最小-最大堆積樹(Min-Max Heaps Tree)是一個完整二元樹。此二元樹是交替的階層方式呈現，分別為最小階層 ( min level ) 和最大階層 ( max level ) ，其中樹根為最小鍵值。<br>
+<img src="https://github.com/YuTe-Lai/yute-lai.github.io/blob/master/img/DS_Min_max_heaps_tree.png?raw=true" alt="Min-Max Heaps Tree"  width="611" height="300">
 
+<img src="https://github.com/YuTe-Lai/yute-lai.github.io/blob/master/img/DS_Min_max_heaps_tree_rule.png?raw=true" alt="Min-Max Heaps Tree"  width="670" height="85">
 
-
-
-
-
-
-
-
-
-
-
-
+### 雙向堆積樹 DEAPS
+#### 定義
+Deap是一個完整二元樹，它是可以為空，若不為空，則必須滿足下列特性：<br>
+- 樹根不包含任何的元素。
+- 左子樹為最小堆積樹(Min Heap)。
+- 右子樹為最大堆積樹(Max Heap)。
+- 左子樹節點鍵值必須要小於右子樹節點鍵值。
+<img src="https://github.com/YuTe-Lai/yute-lai.github.io/blob/master/img/DS_DEAPS.png?raw=true" alt="DEAPS"  width="380" height="280">
 
 
 
