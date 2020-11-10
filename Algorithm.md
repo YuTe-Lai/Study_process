@@ -64,7 +64,6 @@ def sum_number(num):
 sum_number(10)
 ```
 
-<br>
 ## Step 4：撰寫程式
 
 <br>
