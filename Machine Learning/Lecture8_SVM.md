@@ -131,10 +131,10 @@ def SVM_(model,x_train,y_train,x_test,y_test,gamma = 5,degree = 3):
 
 經測試在 gamma = 5 (左圖上方) 或 gamma = 6 （左圖）的時候分數是一樣的，但是以時間效率來看，我認為 gamma = 5 時應該會是更好的選擇。
 ## Kernel = poly
-poly核函式的參數degree <1的時候如右圖，模型會直接全猜一樣的label。  <img src="https://github.com/YuTe-Lai/Study_process/blob/master/Machine%20Learning/img/Lecture8_SVM_poly_kernel0.png?raw=true"  width="300" height="300"><br>
+poly核函式的參數degree <1的時候如右圖，模型會直接全猜一樣的label。  
+<img src="https://github.com/YuTe-Lai/Study_process/blob/master/Machine%20Learning/img/Lecture8_SVM_poly_kernel0.png?raw=true"  width="300" height="300"><br>
 
-而在degree>1的情況下，degree的決策線跟gamma一樣越大就越曲折。其中奇數與偶數會呈現不同的圖形，偶數時的mergin看起來像是用兩個平面定義出來的空間，degree越大平面就越彎曲，其正確率大約都落在60%，隨著degree值越高準確率越低。
-其 degree = 3 時有最高的分數（左中圖）。
+而在degree>1的情況下，degree的決策線跟gamma一樣越大就越曲折。其中奇數與偶數會呈現不同的圖形，偶數時的mergin看起來像是用兩個平面定義出來的空間，degree越大平面就越彎曲，其正確率大約都落在60%，隨著degree值越高準確率越低。其 degree = 3 時有最高的分數（左中圖）。
  <img src="https://github.com/YuTe-Lai/Study_process/blob/master/Machine%20Learning/img/Lecture8_SVM_poly_kernel1.png?raw=true" width="800" height="800"><br>
  <img src="https://github.com/YuTe-Lai/Study_process/blob/master/Machine%20Learning/img/Lecture8_SVM_poly_kernel2.png?raw=true" width="800" height="570"><br>
 
