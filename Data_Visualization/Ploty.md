@@ -16,7 +16,7 @@ iplot([{'x':[1,2,3], 'y':[4,8,1]}],
 image_height=600,
 image_width=1600)             #繪製基本折線圖，尺寸為1600*600
 ```
-![Image of plotly1](img/plotly1.png)<br>
+![Image of plotly1](https://github.com/YuTe-Lai/Data_Visualization.github.io/blob/master/img/plotly1.png?raw=true)<br>
 Plotly繪圖的邏輯包含：<br>
 1.Trace：定義資料、座標軸及圖形等元素。<br>
 2.Layout：定義背景元素：標題、邊框等。<br>
@@ -47,7 +47,7 @@ fig = go.Figure(data=data, layout=layout)
 #go.FigureWidget(data=data, layout=layout)
 py.iplot(fig) 
 ```
-![Image of plotly0](img/plotly0.png)
+![Image of plotly0](https://github.com/YuTe-Lai/Data_Visualization.github.io/blob/master/img/plotly0.png?raw=true)
 
 
 
@@ -77,7 +77,7 @@ plotly.offline.init_notebook_mode()
 #開始繪圖
 plotly.offline.iplot(data, filename='basic-scatter')
 ```
-![Image of plotly2](img/plotly2.png)
+![Image of plotly2](https://github.com/YuTe-Lai/Data_Visualization.github.io/blob/master/img/plotly2.png?raw=true)
 <br>
 
 
@@ -114,7 +114,7 @@ data = [trace0,trace1,trace2]
 plotly.offline.init_notebook_mode()
 plotly.offline.iplot(data, filename='basic-scatter')
 ```
-![Image of plotly3](img/plotly3.png)
+![Image of plotly3](https://github.com/YuTe-Lai/Data_Visualization.github.io/blob/master/img/plotly3.png?raw=true)
 
 
 ## Layout
