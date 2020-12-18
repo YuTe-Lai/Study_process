@@ -126,15 +126,15 @@ def SVM_(model,x_train,y_train,x_test,y_test,gamma = 5,degree = 3):
   <img src="https://github.com/YuTe-Lai/Study_process/blob/master/Machine%20Learning/img/Lecture8_SVM_linearkernel.png?raw=true"  width="820" height="550"><br>
 
 ## Kernel = rbf
-使用 rbf 核函式調整其中 gamma 參數，如下圖，gamma值如果越大決策線就越曲折，花費的時間也越多，每個點影響的範圍就越小，越容易造成 overfitting （如右下圖 gamma = 100）。其中比較值得注意的是 gamma = 0.01 時不論是分數還是時間成本都比線性核函式弱，可以推論 SVM_rbf 更適合解決非線性的問題。
+使用 rbf 核函式調整其中 gamma 參數，如下圖，gamma值如果越大決策線就越曲折，花費的時間也越多，每個點影響的範圍就越小，越容易造成 overfitting 。其中比較值得注意的是 gamma = 0.01 時不論是分數還是時間成本都比線性核函式弱，可以推論 SVM_rbf 更適合解決非線性的問題。
   <img src="https://github.com/YuTe-Lai/Study_process/blob/master/Machine%20Learning/img/Lecture8_SVM_rbf_kernel.png?raw=true"  width="910" height="880"><br>
 
-經測試在 gamma = 5 (左圖上方) 或 gamma = 6 （左圖）的時候分數是一樣的，但是以時間效率來看，我認為 gamma = 5 時應該會是更好的選擇。
+經測試在 gamma = 5  或 gamma = 6 的時候分數是一樣的，但是以時間效率來看，我認為 gamma = 5 時應該會是更好的選擇。
 ## Kernel = poly
-poly核函式的參數degree <1的時候如右圖，模型會直接全猜一樣的label。  
+poly核函式的參數degree <1的時候如下圖，模型會直接全猜一樣的label。  <br>
 <img src="https://github.com/YuTe-Lai/Study_process/blob/master/Machine%20Learning/img/Lecture8_SVM_poly_kernel0.png?raw=true"  width="300" height="300"><br>
 
-而在degree>1的情況下，degree的決策線跟gamma一樣越大就越曲折。其中奇數與偶數會呈現不同的圖形，偶數時的mergin看起來像是用兩個平面定義出來的空間，degree越大平面就越彎曲，其正確率大約都落在60%，隨著degree值越高準確率越低。其 degree = 3 時有最高的分數（左中圖）。
+而在degree>1的情況下，degree的決策線跟gamma一樣越大就越曲折。其中奇數與偶數會呈現不同的圖形，偶數時的mergin看起來像是用兩個平面定義出來的空間，degree越大平面就越彎曲，其正確率大約都落在60%，隨著degree值越高準確率越低。其 degree = 3 時有最高的分數。<br>
  <img src="https://github.com/YuTe-Lai/Study_process/blob/master/Machine%20Learning/img/Lecture8_SVM_poly_kernel1.png?raw=true" width="800" height="800"><br>
  <img src="https://github.com/YuTe-Lai/Study_process/blob/master/Machine%20Learning/img/Lecture8_SVM_poly_kernel2.png?raw=true" width="800" height="570"><br>
 
