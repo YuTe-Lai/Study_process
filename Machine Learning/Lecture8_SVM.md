@@ -126,7 +126,8 @@ def SVM_(model,x_train,y_train,x_test,y_test,gamma = 5,degree = 3):
   <img src="https://github.com/YuTe-Lai/Study_process/blob/master/Machine%20Learning/img/Lecture8_SVM_linearkernel.png?raw=true"  width="820" height="550"><br>
 
 ## Kernel = rbf
-使用 rbf 核函式調整其中 gamma 參數，如下圖，gamma值如果越大決策線就越曲折，花費的時間也越多，每個點影響的範圍就越小，越容易造成 overfitting 。其中比較值得注意的是 gamma = 0.01 時不論是分數還是時間成本都比線性核函式弱，可以推論 SVM_rbf 更適合解決非線性的問題。
+使用 rbf 核函式調整其中 gamma 參數，如下圖，gamma值如果越大決策線就越曲折，花費的時間也越多，每個點影響的範圍就越小，越容易造成 overfitting 。其中比較值得注意的是 gamma = 0.01 時不論是分數還是時間成本都比線性核函式弱，可以推論 SVM_rbf 更適合解決非線性的問題。<br>
+
   <img src="https://github.com/YuTe-Lai/Study_process/blob/master/Machine%20Learning/img/Lecture8_SVM_rbf_kernel.png?raw=true"  width="910" height="880"><br>
 
 經測試在 gamma = 5  或 gamma = 6 的時候分數是一樣的，但是以時間效率來看，我認為 gamma = 5 時應該會是更好的選擇。
