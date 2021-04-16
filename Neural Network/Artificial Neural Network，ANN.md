@@ -113,3 +113,13 @@ plt.plot(x,y)
 plt.show()
 ```
 <img src="https://raw.githubusercontent.com/YuTe-Lai/Study_process/master/img/NN_ANN_IdentityFunction.png"  width="400" height="300"><br>
+
+
+### Softmax function
+```python
+import numpy as np
+def softmax_function(x):
+  return np.exp(x)/np.sum(np.exp(x))
+y = softmax_function(np.array([1,2,3]))
+print(y)
+```
